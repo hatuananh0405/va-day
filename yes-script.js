@@ -6,7 +6,7 @@ window.addEventListener('load', () => {
     // Autoplay music (works since user clicked Yes to get here)
     const music = document.getElementById('bg-music')
     music.volume = 0.3
-    music.currentTime = 19  // 👈 Bắt đầu từ giây 19
+    music.currentTime = 115  // 👈 Bắt đầu từ giây 115
     music.play().catch(() => {})
     musicPlaying = true
     document.getElementById('music-toggle').textContent = '🔊'
@@ -57,7 +57,7 @@ function toggleMusic() {
         musicPlaying = false
         document.getElementById('music-toggle').textContent = '🔇'
     } else {
-        music.currentTime = 19  // 👈 Khi bật lại cũng từ giây 19
+        music.currentTime = 115  // 👈 Khi bật lại cũng từ giây 115
         music.play()
         musicPlaying = true
         document.getElementById('music-toggle').textContent = '🔊'
