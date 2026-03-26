@@ -42,12 +42,15 @@ const music = document.getElementById('bg-music')
 // Autoplay: audio starts muted (bypasses browser policy), unmute immediately
 music.muted = true
 music.volume = 0.3
+music.currentTime = 19  // 👈 Thêm dòng này: bắt đầu từ giây 19
 music.play().then(() => {
     music.muted = false
+    if (music.currentTime < 19) music.currentTime = 19
 }).catch(() => {
     // Fallback: unmute on first interaction
     document.addEventListener('click', () => {
         music.muted = false
+        music.currentTime = 19  // 👈 Khi click cũng bắt đầu từ giây 19
         music.play().catch(() => {})
     }, { once: true })
 })
@@ -59,6 +62,7 @@ function toggleMusic() {
         document.getElementById('music-toggle').textContent = '🔇'
     } else {
         music.muted = false
+        music.currentTime = 19  // 👈 Khi bật lại cũng từ giây 19
         music.play()
         musicPlaying = true
         document.getElementById('music-toggle').textContent = '🔊'
